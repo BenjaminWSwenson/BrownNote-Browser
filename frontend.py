@@ -5,6 +5,7 @@ from backend import *
 def find_page():
     address = e1.get()
     data = request_html_https(address)
+
     cframe = Frame(master)
     cframe.grid(row=1, column=0)
     page = Canvas(cframe, width=w - 10, height=h - 200)
@@ -13,7 +14,14 @@ def find_page():
     hscroll.grid(row=1, column=0, sticky='ew')
     vscroll = Scrollbar(cframe, orient=VERTICAL, command=page.yview)
     vscroll.grid(row=0, column=1, sticky='ns')
-    page.create_text(0, 0, text=data, anchor='nw')
+
+
+    if data.status_code == 200 :
+        page.create_text(0, 0, text=data.text, anchor='nw')
+    else:
+        page.create_text(0, 0, text=f'Error happened couldn\'t download the page\n status code: {data.status_code}', anchor='nw')
+
+
     page.configure(xscrollcommand=hscroll.set)
     page.configure(yscrollcommand=vscroll.set)
     page.config(scrollregion=page.bbox("all"))
