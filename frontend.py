@@ -10,7 +10,7 @@ def find_page():
         cframe = Frame(master)
         cframe.grid(row=1, column=0)
 
-        page = Canvas(cframe, width=w - 10, height=h - 200)
+        page = Canvas(cframe, width=w - 15, height=h - 200)
         page.grid(row=0, column=0)
 
         hscroll = Scrollbar(cframe, orient=HORIZONTAL, command=page.xview)
@@ -18,7 +18,6 @@ def find_page():
 
         vscroll = Scrollbar(cframe, orient=VERTICAL, command=page.yview)
         vscroll.grid(row=0, column=1, sticky='ns')
-
         page.create_text(0, 0, text=data, anchor='nw')
         page.configure(xscrollcommand=hscroll.set)
         page.configure(yscrollcommand=vscroll.set)
@@ -39,8 +38,6 @@ e1.grid(row=0, column=1, columnspan=4)
 
 b1 = Button(search_frame, text="Go To Page", command=lambda: find_page())
 b1.grid(row=0, column=6)
-
-
 
 
 master.mainloop()
