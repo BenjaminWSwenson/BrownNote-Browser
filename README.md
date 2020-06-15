@@ -4,7 +4,7 @@ from the ground up. This is largely a learning project
 for myself, but if you want a browser that only displays text feel free to use it.
 \
 \
-Right now the browser can only display the raw HTML of a page.
+Right now the browser can only display the raw HTML of a page. [Download the initial release here.](https://github.com/BenjaminWSwenson/BrownNote-Browser/releases)
 
 =======
 ## ToDo
